@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CONTAINER PERMISSION TEST</title>
+<style>
+  html, body { height: 100%; margin: 0; }
+  body {
+    background: #222;
+    color: white;
+    font-family: -apple-system, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 16px;
+  }
+  h1 { font-size: 30px; }
+  button {
+    font-size: 22px;
+    padding: 14px 24px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background: #ffd166;
+    font-weight: bold;
+  }
+  #status { font-size: 22px; background: rgba(255,255,255,0.1); padding: 14px 22px; border-radius: 8px; text-align: left; white-space: pre-wrap; }
+  .val { font-weight: bold; color: #7CFC9A; }
+</style>
+</head>
+<body>
+  <h1>CONTAINER PERMISSION TEST<br><span style="font-size:18px">(for Brave Containers isolation check)</span></h1>
+  <div id="status">loading...</div>
+  <button id="btn">Request Notification Permission</button>
+
+  <script>
+    const statusEl = document.getElementById('status');
+
+    async function refresh() {
+      let queryState = 'n/a';
+      try {
+        const p = await navigator.permissions.query({ name: 'notifications' });
+        queryState = p.state;
+      } catch (e) {
+        queryState = 'error: ' + e.message;
+      }
+      statusEl.textContent =
+        `origin: ${location.origin}\n` +
+        `Notification.permission: ${Notification.permission}\n` +
+        `permissions.query('notifications'): ${queryState}\n` +
+        `time: ${new Date().toISOString()}`;
+    }
+
+    document.getElementById('btn').addEventListener('click', async () => {
+      const result = await Notification.requestPermission();
+      await refresh();
+    });
+
+    refresh();
+    setInterval(refresh, 2000);
+  </script>
+</body>
+</html>
