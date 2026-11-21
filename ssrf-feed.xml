@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss xmlns:media="http://search.yahoo.com/mrss/" version="2.0">
   <channel>
-    <title>SSRF Test Feed</title>
+    <title>SSRF Test Feed v2</title>
     <link>https://hexafaton.github.io/github.io/ssrf-feed.xml</link>
     <description>Minimal feed for testing Brave News direct-feed image SSRF</description>
     <item>
-      <title>Test article with internal image URL</title>
+      <title>Test article v2 with internal image URL</title>
       <link>https://hexafaton.github.io/github.io/splitview-decoy.html</link>
-      <guid>https://hexafaton.github.io/github.io/ssrf-test-item-1</guid>
+      <guid>https://hexafaton.github.io/github.io/ssrf-test-item-2</guid>
       <pubDate>Sat, 21 Nov 2026 12:00:00 GMT</pubDate>
-      <description>Testing whether the image enclosure URL is fetched by the browser process.</description>
-      <enclosure url="https://127.0.0.1:8765/probe.jpg" type="image/jpeg" length="1" />
+      <description>Testing whether the image URL is fetched by the browser process.</description>
+      <media:thumbnail url="https://127.0.0.1:8765/probe.jpg" width="140" height="140"/>
     </item>
   </channel>
 </rss>
