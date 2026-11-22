@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss xmlns:media="http://search.yahoo.com/mrss/" version="2.0">
   <channel>
-    <title>SSRF Test Feed v2</title>
+    <title>SSRF Test Feed</title>
     <link>https://hexafaton.github.io/github.io/ssrf-feed.xml</link>
     <description>Minimal feed for testing Brave News direct-feed image SSRF</description>
     <item>
-      <title>Test article v3 with redirect-chained internal image URL</title>
+      <title>Test article with redirect-chained internal image URL</title>
       <link>https://hexafaton.github.io/github.io/splitview-decoy.html</link>
-      <guid>https://hexafaton.github.io/github.io/ssrf-test-item-3</guid>
+      <guid>https://hexafaton.github.io/github.io/ssrf-test-item</guid>
       <pubDate>Sun, 22 Nov 2026 12:00:00 GMT</pubDate>
       <description>Testing whether the image URL is fetched via an attacker-controlled redirect host.</description>
       <media:thumbnail url="https://ssrftest.vercel.app/probe.jpg" width="140" height="140"/>
